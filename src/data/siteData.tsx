@@ -9,7 +9,7 @@ export const siteData = {
     title: "Revolutionize Your Attendance Management",
     subtitle: "Smart, secure, and simple attendance tracking with QR codes, location verification, and real-time reporting.",
     ctaText: "Get Started Today",
-    videoUrl: "", // Add your marketing video URL here
+    videoUrl: "https://your-video-url.mp4", // Replace with your actual video URL
   },
 
   features: [
