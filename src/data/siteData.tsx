@@ -2,61 +2,61 @@
 export const siteData = {
   appName: "ScanHadir",
   adminAppName: "ScanHadir Dashboard",
-  tagline: "Smart Attendance Solution for Modern Organizations",
-  description: "Revolutionary QR code-based attendance system with location tracking, field work support, and secure data management.",
+  tagline: "Solusi Absensi Pintar untuk Organisasi Modern",
+  description: "Sistem absensi revolusioner berbasis QR code dengan pelacakan lokasi, dukungan kerja lapangan, dan manajemen data yang aman.",
   
   hero: {
-    title: "Revolutionize Your Attendance Management",
-    subtitle: "Smart, secure, and simple attendance tracking with QR codes, location verification, and real-time reporting.",
-    ctaText: "Get Started Today",
+    title: "Revolusi Manajemen Absensi Anda",
+    subtitle: "Pelacakan absensi yang pintar, aman, dan sederhana dengan QR code, verifikasi lokasi, dan pelaporan real-time.",
+    ctaText: "Mulai Hari Ini",
     videoUrl: "https://your-video-url.mp4", // Replace with your actual video URL
   },
 
   features: [
     {
-      title: "QR Code Based Attendance",
-      description: "Quick and contactless attendance marking using unique QR codes for each session.",
+      title: "Absensi Berbasis QR Code",
+      description: "Absensi cepat dan tanpa kontak menggunakan QR code unik untuk setiap sesi.",
       icon: "qr-code",
     },
     {
-      title: "Location-Based Verification",
-      description: "Ensure attendance is marked only at designated institution locations.",
+      title: "Verifikasi Berbasis Lokasi",
+      description: "Pastikan absensi dicatat hanya di lokasi institusi yang telah ditentukan.",
       icon: "map-pin",
     },
     {
-      title: "Field Work Support",
-      description: "Track attendance for field work and remote assignments with GPS verification.",
+      title: "Dukungan Kerja Lapangan",
+      description: "Lacak absensi untuk kerja lapangan dan tugas remote dengan verifikasi GPS.",
       icon: "map",
     },
     {
-      title: "Simple & Clean Design",
-      description: "Intuitive interface that's easy to use for both administrators and users.",
+      title: "Desain Sederhana & Bersih",
+      description: "Antarmuka yang intuitif dan mudah digunakan untuk administrator maupun pengguna.",
       icon: "smartphone",
     },
     {
-      title: "Secure Data Storage",
-      description: "Your data is safely stored on your own dedicated server infrastructure.",
+      title: "Penyimpanan Data Aman",
+      description: "Data Anda tersimpan aman di infrastruktur server khusus Anda sendiri.",
       icon: "shield-check",
     },
     {
-      title: "Real-time Reporting",
-      description: "Generate comprehensive reports and analytics in real-time.",
+      title: "Pelaporan Real-time",
+      description: "Buat laporan dan analitik komprehensif secara real-time.",
       icon: "bar-chart-3",
     },
   ],
 
   developers: [
     {
-      name: "Developer Name 1",
+      name: "Nama Developer 1",
       role: "Lead Developer",
       image: "/lovable-uploads/placeholder-dev1.jpg", // Replace with actual developer photos
-      bio: "Experienced in mobile and desktop application development.",
+      bio: "Berpengalaman dalam pengembangan aplikasi mobile dan desktop.",
     },
     {
-      name: "Developer Name 2", 
+      name: "Nama Developer 2", 
       role: "Backend Developer",
       image: "/lovable-uploads/placeholder-dev2.jpg", // Replace with actual developer photos
-      bio: "Specialist in server infrastructure and data security.",
+      bio: "Spesialis dalam infrastruktur server dan keamanan data.",
     },
   ],
 
@@ -64,10 +64,12 @@ export const siteData = {
     android: {
       url: "https://play.google.com/store/apps/details?id=com.scanhadir.app", // Replace with actual Play Store URL
       available: true,
+      price: "Rp 1.000.000",
     },
     windows: {
       url: "https://github.com/yourrepo/scanhadir-dashboard/releases/latest", // Replace with actual download URL
       available: true,
+      price: "Rp 1.000.000",
     },
   },
 
@@ -87,33 +89,33 @@ export const siteData = {
 export const docsData = {
   installation: {
     android: {
-      title: "Android Installation",
+      title: "Instalasi Android",
       steps: [
-        "Download ScanHadir from Google Play Store",
-        "Install the application on your Android device",
-        "Open the app and complete the initial setup",
-        "Grant necessary permissions for camera and location",
-        "Contact your administrator for organization setup",
+        "Unduh ScanHadir dari Google Play Store",
+        "Instal aplikasi di perangkat Android Anda",
+        "Buka aplikasi dan selesaikan pengaturan awal",
+        "Berikan izin yang diperlukan untuk kamera dan lokasi",
+        "Hubungi administrator untuk pengaturan organisasi",
       ],
     },
     windows: {
-      title: "Windows Dashboard Installation", 
+      title: "Instalasi Dashboard Windows", 
       steps: [
-        "Download ScanHadir Dashboard installer",
-        "Run the installer as administrator",
-        "Follow the installation wizard",
-        "Configure your server connection settings",
-        "Set up auto-startup (optional)",
+        "Unduh installer ScanHadir Dashboard",
+        "Jalankan installer sebagai administrator",
+        "Ikuti wizard instalasi",
+        "Konfigurasi pengaturan koneksi server Anda",
+        "Atur auto-startup (opsional)",
       ],
     },
     autoStart: {
-      title: "Windows Auto-Startup Configuration",
+      title: "Konfigurasi Auto-Startup Windows",
       steps: [
-        "Press Windows + R to open Run dialog",
-        "Type 'shell:startup' and press Enter",
-        "Copy ScanHadir Dashboard shortcut to this folder",
-        "Alternatively, use Task Scheduler for advanced options",
-        "Restart your computer to test auto-startup",
+        "Tekan Windows + R untuk membuka dialog Run",
+        "Ketik 'shell:startup' dan tekan Enter",
+        "Salin shortcut ScanHadir Dashboard ke folder ini",
+        "Alternatifnya, gunakan Task Scheduler untuk opsi lanjutan",
+        "Restart komputer Anda untuk menguji auto-startup",
       ],
     },
   },
@@ -121,20 +123,20 @@ export const docsData = {
   userGuide: {
     sections: [
       {
-        title: "Getting Started",
-        content: "Learn how to set up and configure ScanHadir for your organization.",
+        title: "Memulai",
+        content: "Pelajari cara mengatur dan mengkonfigurasi ScanHadir untuk organisasi Anda.",
       },
       {
-        title: "Marking Attendance",
-        content: "Step-by-step guide on how users can mark their attendance using QR codes.",
+        title: "Melakukan Absensi",
+        content: "Panduan langkah demi langkah tentang cara pengguna dapat melakukan absensi menggunakan QR code.",
       },
       {
-        title: "Managing Users",
-        content: "Administrative guide for managing users, roles, and permissions.",
+        title: "Mengelola Pengguna",
+        content: "Panduan administratif untuk mengelola pengguna, peran, dan izin.",
       },
       {
-        title: "Reports & Analytics",
-        content: "Generate and export comprehensive attendance reports.",
+        title: "Laporan & Analitik",
+        content: "Buat dan ekspor laporan absensi yang komprehensif.",
       },
     ],
   },
