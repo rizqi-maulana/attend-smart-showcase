@@ -2,6 +2,7 @@
 export const siteData = {
   appName: "ScanHadir",
   adminAppName: "ScanHadir Dashboard",
+  scannerAppName: "ScanHadir Scanner",
   tagline: "Solusi Absensi Pintar untuk Organisasi Modern",
   description: "Sistem absensi revolusioner berbasis QR code dengan pelacakan lokasi, dukungan kerja lapangan, dan manajemen data yang aman.",
   
@@ -13,9 +14,15 @@ export const siteData = {
   },
 
   pricing: {
-    installationFee: "Rp 1.000.000",
-    monthlyFee: "Rp 500.000/bulan",
-    description: "Biaya instalasi dan setup sekali bayar, plus biaya langganan bulanan untuk maintenance dan support."
+    monthlyFee: "Rp 1.000.000/bulan",
+    description: "Biaya langganan bulanan untuk akses penuh sistem dan layanan support.",
+    benefits: [
+      "Installer aplikasi pertama kali",
+      "Layanan support 24/7",
+      "Update rutin dan berkelanjutan",
+      "Keamanan tingkat enterprise",
+      "Akses multi-pengguna"
+    ]
   },
 
   features: [
@@ -110,31 +117,43 @@ export const siteData = {
 
   developers: [
     {
-      name: "Nama Developer 1",
+      name: "Arif Rahman",
       role: "Lead Developer",
-      image: "/lovable-uploads/placeholder-dev1.jpg", // Replace with actual developer photos
-      bio: "Berpengalaman dalam pengembangan aplikasi mobile dan desktop.",
+      image: "/lovable-uploads/placeholder-dev1.jpg",
+      bio: "Berpengalaman dalam pengembangan aplikasi mobile dan web dengan keahlian khusus dalam sistem keamanan.",
     },
     {
-      name: "Nama Developer 2", 
+      name: "Dewi Sartika", 
       role: "Backend Developer",
-      image: "/lovable-uploads/placeholder-dev2.jpg", // Replace with actual developer photos
-      bio: "Spesialis dalam infrastruktur server dan keamanan data.",
+      image: "/lovable-uploads/placeholder-dev2.jpg",
+      bio: "Spesialis dalam arsitektur server dan pengelolaan database dengan fokus pada performa tinggi.",
+    },
+    {
+      name: "Budi Santoso",
+      role: "Mobile Developer",
+      image: "/lovable-uploads/placeholder-dev3.jpg",
+      bio: "Ahli dalam pengembangan aplikasi Android native dengan pengalaman UI/UX yang mendalam.",
     },
   ],
 
   downloads: {
-    android: {
-      url: "https://play.google.com/store/apps/details?id=com.scanhadir.app", // Replace with actual Play Store URL
+    main: {
+      url: "https://play.google.com/store/apps/details?id=com.scanhadir.main",
       available: true,
-      installationFee: "Rp 1.000.000",
-      monthlyFee: "Rp 500.000/bulan",
+      name: "ScanHadir",
+      description: "Aplikasi utama untuk menampilkan QR code absensi"
     },
-    windows: {
-      url: "https://github.com/yourrepo/scanhadir-dashboard/releases/latest", // Replace with actual download URL
+    scanner: {
+      url: "https://play.google.com/store/apps/details?id=com.scanhadir.scanner",
       available: true,
-      installationFee: "Rp 1.000.000",
-      monthlyFee: "Rp 500.000/bulan",
+      name: "ScanHadir Scanner",
+      description: "Aplikasi scanner QR code khusus untuk institusi"
+    },
+    desktop: {
+      url: "https://github.com/yourrepo/scanhadir-dashboard/releases/latest",
+      available: true,
+      name: "ScanHadir Dashboard",
+      description: "Dashboard desktop untuk administrator"
     },
   },
 

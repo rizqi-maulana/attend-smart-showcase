@@ -48,24 +48,38 @@ const Home = () => {
               {/* Pricing Display */}
               <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Investasi Terjangkau</h3>
-                  <div className="space-y-2">
-                    <div className="text-3xl font-bold text-primary">{siteData.pricing.installationFee}</div>
-                    <div className="text-sm text-gray-600">Biaya instalasi & setup</div>
-                    <div className="text-xl font-semibold text-gray-900">{siteData.pricing.monthlyFee}</div>
-                    <div className="text-sm text-gray-600">Langganan bulanan</div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Investasi Profesional</h3>
+                  <div className="text-3xl font-bold text-primary mb-2">{siteData.pricing.monthlyFee}</div>
+                  <div className="text-sm text-gray-600 mb-4">{siteData.pricing.description}</div>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="flex items-center space-x-1">
+                      <CheckCircle className="w-3 h-3 text-green-500" />
+                      <span className="text-gray-600">Installer Gratis</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <CheckCircle className="w-3 h-3 text-green-500" />
+                      <span className="text-gray-600">Support 24/7</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <CheckCircle className="w-3 h-3 text-green-500" />
+                      <span className="text-gray-600">Update Rutin</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <CheckCircle className="w-3 h-3 text-green-500" />
+                      <span className="text-gray-600">Keamanan Tinggi</span>
+                    </div>
                   </div>
                 </div>
               </div>
               
               <div className="flex items-center space-x-6">
                 <div className="flex items-center space-x-2 text-gray-600">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>Setup profesional</span>
-                </div>
-                <div className="flex items-center space-x-2 text-gray-600">
                   <Users className="w-5 h-5 text-blue-500" />
                   <span>1000+ Organisasi</span>
+                </div>
+                <div className="flex items-center space-x-2 text-gray-600">
+                  <Star className="w-5 h-5 text-yellow-500" />
+                  <span>Rating 4.9/5</span>
                 </div>
               </div>
               

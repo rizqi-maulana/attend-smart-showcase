@@ -1,7 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Download, Smartphone, Monitor, CheckCircle, ExternalLink } from 'lucide-react';
+import { Download, Smartphone, Monitor, CheckCircle, ExternalLink, ScanLine, Shield } from 'lucide-react';
 import { siteData } from '@/data/siteData';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -19,34 +19,67 @@ const DownloadPage = () => {
               Unduh ScanHadir
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Mulai dengan ScanHadir hari ini. Unduh aplikasi mobile untuk pengguna dan dashboard desktop untuk administrator.
+              Mulai dengan ScanHadir hari ini. Unduh aplikasi mobile dan dashboard desktop untuk solusi absensi terlengkap.
             </p>
+            <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 max-w-md mx-auto">
+              <div className="text-center">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Biaya Berlangganan</h3>
+                <div className="text-3xl font-bold text-primary mb-4">{siteData.pricing.monthlyFee}</div>
+                <p className="text-sm text-gray-600">{siteData.pricing.description}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What You Get Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Apa yang Anda Dapatkan
+              </h2>
+              <p className="text-xl text-gray-600">
+                Paket lengkap untuk sistem absensi profesional
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {siteData.pricing.benefits.map((benefit, index) => (
+                <div key={index} className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-6 w-6 text-green-500" />
+                    <span className="font-medium text-gray-900">{benefit}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Download Options */}
         <section className="py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Pilih Aplikasi yang Sesuai
+              </h2>
+              <p className="text-xl text-gray-600">
+                Tiga aplikasi terintegrasi untuk solusi absensi lengkap
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               
-              {/* Mobile App */}
+              {/* Main App */}
               <Card className="hover:shadow-lg transition-shadow duration-300">
                 <CardHeader className="text-center">
                   <div className="w-20 h-20 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    {/* Play Store Icon */}
-                    <svg className="h-12 w-12 text-primary" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-                    </svg>
+                    <Smartphone className="h-12 w-12 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl">{siteData.appName} Mobile</CardTitle>
+                  <CardTitle className="text-2xl">{siteData.downloads.main.name}</CardTitle>
                   <CardDescription className="text-base">
-                    Aplikasi Android untuk pengguna melakukan absensi menggunakan QR code
+                    {siteData.downloads.main.description}
                   </CardDescription>
-                  <div className="mt-4">
-                    <span className="inline-block bg-primary text-white px-4 py-2 rounded-full text-lg font-semibold">
-                      {siteData.downloads.android.price}
-                    </span>
-                  </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="space-y-3">
@@ -54,37 +87,27 @@ const DownloadPage = () => {
                     <ul className="space-y-2">
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span className="text-gray-600">Scan QR code untuk absensi</span>
+                        <span className="text-gray-600">Tampilkan QR code absensi</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span className="text-gray-600">Verifikasi berbasis lokasi</span>
+                        <span className="text-gray-600">Profil pengguna</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span className="text-gray-600">Pelacakan riwayat absensi</span>
+                        <span className="text-gray-600">Riwayat absensi</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span className="text-gray-600">Dukungan offline</span>
+                        <span className="text-gray-600">Notifikasi real-time</span>
                       </li>
-                    </ul>
-                  </div>
-
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-900">Persyaratan Sistem:</h4>
-                    <ul className="space-y-1 text-sm text-gray-600">
-                      <li>• Android 5.0 (API level 21) atau lebih tinggi</li>
-                      <li>• Izin kamera untuk scan QR</li>
-                      <li>• Layanan lokasi diaktifkan</li>
-                      <li>• Koneksi internet untuk sinkronisasi</li>
                     </ul>
                   </div>
 
                   <div className="pt-4">
-                    {siteData.downloads.android.available ? (
+                    {siteData.downloads.main.available ? (
                       <Button className="w-full" size="lg" asChild>
-                        <a href={siteData.downloads.android.url} target="_blank" rel="noopener noreferrer">
+                        <a href={siteData.downloads.main.url} target="_blank" rel="noopener noreferrer">
                           <Download className="mr-2 h-5 w-5" />
                           Unduh dari Play Store
                           <ExternalLink className="ml-2 h-4 w-4" />
@@ -99,22 +122,19 @@ const DownloadPage = () => {
                 </CardContent>
               </Card>
 
-              {/* Desktop Dashboard */}
-              <Card className="hover:shadow-lg transition-shadow duration-300">
+              {/* Scanner App */}
+              <Card className="hover:shadow-lg transition-shadow duration-300 border-primary/20">
                 <CardHeader className="text-center">
                   <div className="w-20 h-20 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    {/* Windows Icon */}
-                    <svg className="h-12 w-12 text-primary" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M3,12V6.75L9,5.43V11.91L3,12M20,3V11.75L10,11.9V5.21L20,3M3,13L9,13.09V19.9L3,18.75V13M20,13.25V22L10,20.09V13.1L20,13.25Z" />
-                    </svg>
+                    <ScanLine className="h-12 w-12 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl">{siteData.adminAppName}</CardTitle>
+                  <CardTitle className="text-2xl">{siteData.downloads.scanner.name}</CardTitle>
                   <CardDescription className="text-base">
-                    Aplikasi desktop Windows untuk administrator dan manajer
+                    {siteData.downloads.scanner.description}
                   </CardDescription>
-                  <div className="mt-4">
-                    <span className="inline-block bg-primary text-white px-4 py-2 rounded-full text-lg font-semibold">
-                      {siteData.downloads.windows.price}
+                  <div className="mt-2">
+                    <span className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
+                      Khusus Institusi
                     </span>
                   </div>
                 </CardHeader>
@@ -124,19 +144,81 @@ const DownloadPage = () => {
                     <ul className="space-y-2">
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span className="text-gray-600">Manajemen pengguna dan peran</span>
+                        <span className="text-gray-600">Scan QR code cepat</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span className="text-gray-600">Generasi QR code</span>
+                        <span className="text-gray-600">Verifikasi lokasi GPS</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span className="text-gray-600">Pelaporan dan analitik lanjutan</span>
+                        <span className="text-gray-600">Mode offline</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span className="text-gray-600">Kemampuan ekspor data</span>
+                        <span className="text-gray-600">Akses administrator</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                    <div className="flex items-start space-x-3">
+                      <Shield className="h-5 w-5 text-amber-600 mt-0.5" />
+                      <div>
+                        <p className="text-sm text-amber-800 font-medium">Akses Terbatas</p>
+                        <p className="text-sm text-amber-700">Aplikasi ini hanya dapat diunduh oleh institusi yang telah terdaftar.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-4">
+                    {siteData.downloads.scanner.available ? (
+                      <Button className="w-full" size="lg" asChild>
+                        <a href={siteData.downloads.scanner.url} target="_blank" rel="noopener noreferrer">
+                          <Download className="mr-2 h-5 w-5" />
+                          Unduh untuk Institusi
+                          <ExternalLink className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button className="w-full" size="lg" disabled>
+                        Segera Hadir
+                      </Button>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Desktop Dashboard */}
+              <Card className="hover:shadow-lg transition-shadow duration-300">
+                <CardHeader className="text-center">
+                  <div className="w-20 h-20 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Monitor className="h-12 w-12 text-primary" />
+                  </div>
+                  <CardTitle className="text-2xl">{siteData.downloads.desktop.name}</CardTitle>
+                  <CardDescription className="text-base">
+                    {siteData.downloads.desktop.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-gray-900">Fitur:</h4>
+                    <ul className="space-y-2">
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-green-500" />
+                        <span className="text-gray-600">Manajemen pengguna lengkap</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-green-500" />
+                        <span className="text-gray-600">Generasi QR code otomatis</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-green-500" />
+                        <span className="text-gray-600">Laporan dan analitik mendalam</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-green-500" />
+                        <span className="text-gray-600">Ekspor data multi-format</span>
                       </li>
                     </ul>
                   </div>
@@ -145,17 +227,16 @@ const DownloadPage = () => {
                     <h4 className="font-semibold text-gray-900">Persyaratan Sistem:</h4>
                     <ul className="space-y-1 text-sm text-gray-600">
                       <li>• Windows 10 atau Windows 11</li>
-                      <li>• .NET Framework 4.7.2 atau lebih tinggi</li>
                       <li>• 4GB RAM (8GB direkomendasikan)</li>
                       <li>• 500MB ruang disk tersedia</li>
-                      <li>• Koneksi internet</li>
+                      <li>• Koneksi internet stabil</li>
                     </ul>
                   </div>
 
                   <div className="pt-4">
-                    {siteData.downloads.windows.available ? (
+                    {siteData.downloads.desktop.available ? (
                       <Button className="w-full" size="lg" asChild>
-                        <a href={siteData.downloads.windows.url} target="_blank" rel="noopener noreferrer">
+                        <a href={siteData.downloads.desktop.url} target="_blank" rel="noopener noreferrer">
                           <Download className="mr-2 h-5 w-5" />
                           Unduh untuk Windows
                           <ExternalLink className="ml-2 h-4 w-4" />
@@ -173,15 +254,46 @@ const DownloadPage = () => {
           </div>
         </section>
 
-        {/* Installation Guide */}
+        {/* Developer Team Section */}
         <section className="py-16 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Tim Pengembang
+              </h2>
+              <p className="text-xl text-gray-600">
+                Dikembangkan oleh tim profesional berpengalaman dengan teknologi Next.js dan Tailwind CSS
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {siteData.developers.map((developer, index) => (
+                <Card key={index} className="hover:shadow-lg transition-shadow duration-300 text-center">
+                  <CardContent className="p-6">
+                    <img 
+                      src={developer.image} 
+                      alt={developer.name}
+                      className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+                    />
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{developer.name}</h3>
+                    <p className="text-primary font-medium mb-3">{developer.role}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{developer.bio}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Installation Guide */}
+        <section className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 Panduan Instalasi Cepat
               </h2>
               <p className="text-xl text-gray-600">
-                Mulai dan jalankan dalam hitungan menit dengan proses instalasi sederhana kami
+                Mulai dan jalankan dalam hitungan menit dengan proses instalasi yang mudah
               </p>
             </div>
 
@@ -205,11 +317,11 @@ const DownloadPage = () => {
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">3</span>
-                      <span>Masukkan detail organisasi yang diberikan admin</span>
+                      <span>Masukkan detail organisasi</span>
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">4</span>
-                      <span>Selesaikan pengaturan profil dan mulai gunakan</span>
+                      <span>Selesaikan pengaturan profil</span>
                     </li>
                   </ol>
                 </CardContent>
@@ -230,11 +342,11 @@ const DownloadPage = () => {
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">2</span>
-                      <span>Ikuti langkah-langkah wizard instalasi</span>
+                      <span>Ikuti wizard instalasi</span>
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">3</span>
-                      <span>Konfigurasi pengaturan koneksi server</span>
+                      <span>Konfigurasi pengaturan server</span>
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">4</span>
