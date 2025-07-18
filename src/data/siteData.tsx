@@ -64,12 +64,14 @@ export const siteData = {
     android: {
       url: "https://play.google.com/store/apps/details?id=com.scanhadir.app", // Replace with actual Play Store URL
       available: true,
-      price: "Rp 1.000.000",
+      price: "Gratis",
+      setupFee: "Rp 1.000.000",
     },
     windows: {
       url: "https://github.com/yourrepo/scanhadir-dashboard/releases/latest", // Replace with actual download URL
       available: true,
-      price: "Rp 1.000.000",
+      price: "Gratis",
+      setupFee: "Rp 1.000.000",
     },
   },
 
