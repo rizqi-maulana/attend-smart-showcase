@@ -12,6 +12,12 @@ export const siteData = {
     videoUrl: "https://your-video-url.mp4", // Replace with your actual video URL
   },
 
+  pricing: {
+    installationFee: "Rp 1.000.000",
+    monthlyFee: "Rp 500.000/bulan",
+    description: "Biaya instalasi dan setup sekali bayar, plus biaya langganan bulanan untuk maintenance dan support."
+  },
+
   features: [
     {
       title: "Absensi Berbasis QR Code",
@@ -45,6 +51,63 @@ export const siteData = {
     },
   ],
 
+  institutionalUsers: [
+    {
+      name: "Universitas Indonesia",
+      type: "Perguruan Tinggi",
+      logo: "/lovable-uploads/placeholder-logo-ui.png"
+    },
+    {
+      name: "SMA Negeri 1 Jakarta",
+      type: "Sekolah Menengah",
+      logo: "/lovable-uploads/placeholder-logo-sma.png"
+    },
+    {
+      name: "PT. Teknologi Nusantara",
+      type: "Perusahaan Swasta",
+      logo: "/lovable-uploads/placeholder-logo-company.png"
+    },
+    {
+      name: "Rumah Sakit Pusat Pertamina",
+      type: "Rumah Sakit",
+      logo: "/lovable-uploads/placeholder-logo-hospital.png"
+    },
+    {
+      name: "Kementerian Pendidikan",
+      type: "Instansi Pemerintah",
+      logo: "/lovable-uploads/placeholder-logo-gov.png"
+    },
+    {
+      name: "Bank Mandiri",
+      type: "Perbankan",
+      logo: "/lovable-uploads/placeholder-logo-bank.png"
+    }
+  ],
+
+  testimonials: [
+    {
+      name: "Dr. Ahmad Sutrisno",
+      position: "Kepala Bagian SDM",
+      company: "Universitas Indonesia",
+      content: "ScanHadir telah mengubah cara kami mengelola absensi. Sistem yang sangat efisien dan mudah digunakan.",
+      avatar: "/lovable-uploads/placeholder-avatar-1.jpg"
+    },
+    {
+      name: "Siti Rahayu, S.Pd",
+      position: "Wakil Kepala Sekolah",
+      company: "SMA Negeri 1 Jakarta",
+      content: "Fitur pelacakan lokasi sangat membantu memastikan siswa benar-benar hadir di sekolah. Sangat direkomendasikan!",
+      avatar: "/lovable-uploads/placeholder-avatar-2.jpg"
+    },
+    {
+      name: "Muhammad Rizki",
+      position: "Manager IT",
+      company: "PT. Teknologi Nusantara",
+      content: "Dashboard yang komprehensif dan laporan real-time membuat manajemen absensi karyawan menjadi sangat mudah.",
+      avatar: "/lovable-uploads/placeholder-avatar-3.jpg"
+    }
+  ],
+
   developers: [
     {
       name: "Nama Developer 1",
@@ -64,14 +127,14 @@ export const siteData = {
     android: {
       url: "https://play.google.com/store/apps/details?id=com.scanhadir.app", // Replace with actual Play Store URL
       available: true,
-      price: "Gratis",
-      setupFee: "Rp 1.000.000",
+      installationFee: "Rp 1.000.000",
+      monthlyFee: "Rp 500.000/bulan",
     },
     windows: {
       url: "https://github.com/yourrepo/scanhadir-dashboard/releases/latest", // Replace with actual download URL
       available: true,
-      price: "Gratis",
-      setupFee: "Rp 1.000.000",
+      installationFee: "Rp 1.000.000",
+      monthlyFee: "Rp 500.000/bulan",
     },
   },
 

@@ -1,8 +1,7 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Download, Smartphone, Monitor, QrCode, MapPin, Map, ShieldCheck, BarChart3, CheckCircle, Users, Zap } from 'lucide-react';
+import { Download, Smartphone, Monitor, QrCode, MapPin, Map, ShieldCheck, BarChart3, CheckCircle, Users, Zap, Star, Quote } from 'lucide-react';
 import { siteData } from '@/data/siteData';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -46,10 +45,23 @@ const Home = () => {
                 </p>
               </div>
               
+              {/* Pricing Display */}
+              <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
+                <div className="text-center">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Investasi Terjangkau</h3>
+                  <div className="space-y-2">
+                    <div className="text-3xl font-bold text-primary">{siteData.pricing.installationFee}</div>
+                    <div className="text-sm text-gray-600">Biaya instalasi & setup</div>
+                    <div className="text-xl font-semibold text-gray-900">{siteData.pricing.monthlyFee}</div>
+                    <div className="text-sm text-gray-600">Langganan bulanan</div>
+                  </div>
+                </div>
+              </div>
+              
               <div className="flex items-center space-x-6">
                 <div className="flex items-center space-x-2 text-gray-600">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>Gratis untuk digunakan</span>
+                  <span>Setup profesional</span>
                 </div>
                 <div className="flex items-center space-x-2 text-gray-600">
                   <Users className="w-5 h-5 text-blue-500" />
@@ -61,7 +73,7 @@ const Home = () => {
                 <Button size="lg" className="text-lg px-8 py-6 h-auto" asChild>
                   <Link to="/download">
                     <Download className="mr-2 h-5 w-5" />
-                    Unduh Sekarang
+                    Dapatkan Sekarang
                   </Link>
                 </Button>
                 <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto" asChild>
@@ -82,9 +94,13 @@ const Home = () => {
                     <h3 className="text-white font-semibold text-lg">Aplikasi Mobile</h3>
                     <p className="text-blue-100 text-sm">Aplikasi Android</p>
                   </div>
-                  {/* Add your mobile app demo image here */}
-                  <div className="bg-gray-100 rounded-xl h-32 mb-4 flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">Demo Aplikasi Mobile</span>
+                  {/* Mobile App Demo Image */}
+                  <div className="bg-gray-100 rounded-xl h-32 mb-4 flex items-center justify-center overflow-hidden">
+                    <img 
+                      src="/api/placeholder/200/128" 
+                      alt="Demo Aplikasi Mobile ScanHadir"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-center space-x-2">
@@ -105,9 +121,13 @@ const Home = () => {
                     <h3 className="text-white font-semibold text-lg">Dashboard</h3>
                     <p className="text-gray-300 text-sm">Desktop Windows</p>
                   </div>
-                  {/* Add your desktop app demo image here */}
-                  <div className="bg-gray-100 rounded-xl h-32 mb-4 flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">Demo Dashboard Desktop</span>
+                  {/* Desktop App Demo Image */}
+                  <div className="bg-gray-100 rounded-xl h-32 mb-4 flex items-center justify-center overflow-hidden">
+                    <img 
+                      src="/api/placeholder/200/128" 
+                      alt="Demo Dashboard Desktop ScanHadir"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-center space-x-2">
@@ -158,8 +178,38 @@ const Home = () => {
         </section>
       )}
 
-      {/* Features Section */}
+      {/* Institutional Users Section */}
       <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Dipercaya Oleh Berbagai Institusi
+            </h2>
+            <p className="text-xl text-gray-600">
+              Lebih dari 1000 organisasi telah mempercayai ScanHadir untuk manajemen absensi mereka
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            {siteData.institutionalUsers.map((user, index) => (
+              <div key={index} className="text-center group hover:scale-105 transition-transform duration-300">
+                <div className="bg-gray-50 rounded-2xl p-6 mb-4 group-hover:bg-primary/5 transition-colors duration-300">
+                  <img 
+                    src={user.logo} 
+                    alt={`Logo ${user.name}`}
+                    className="w-16 h-16 mx-auto object-contain"
+                  />
+                </div>
+                <h3 className="font-semibold text-gray-900 text-sm mb-1">{user.name}</h3>
+                <p className="text-xs text-gray-600">{user.type}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6">
@@ -193,6 +243,48 @@ const Home = () => {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Apa Kata Pengguna Kami
+            </h2>
+            <p className="text-xl text-gray-600">
+              Testimoni nyata dari berbagai organisasi yang telah merasakan manfaat ScanHadir
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {siteData.testimonials.map((testimonial, index) => (
+              <Card key={index} className="hover:shadow-xl transition-shadow duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                  <Quote className="h-8 w-8 text-primary mb-4" />
+                  <p className="text-gray-600 mb-6 italic">"{testimonial.content}"</p>
+                  <div className="flex items-center">
+                    <img 
+                      src={testimonial.avatar} 
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full mr-4"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                      <p className="text-sm text-gray-600">{testimonial.position}</p>
+                      <p className="text-sm text-primary">{testimonial.company}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -343,7 +435,7 @@ const Home = () => {
             <Button size="lg" variant="secondary" className="text-lg px-8 py-6 h-auto" asChild>
               <Link to="/download">
                 <Download className="mr-2 h-5 w-5" />
-                Unduh Sekarang
+                Dapatkan Sekarang
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8 py-6 h-auto text-white border-white hover:bg-white hover:text-primary" asChild>
