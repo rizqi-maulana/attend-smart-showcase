@@ -9,6 +9,9 @@ import Features from "./pages/Features";
 import About from "./pages/About";
 import DownloadPage from "./pages/Download";
 import Docs from "./pages/Docs";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
+import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +28,9 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/download" element={<DownloadPage />} />
           <Route path="/docs" element={<Docs />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/support" element={<Support />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

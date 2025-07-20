@@ -6,7 +6,7 @@ import { docsData } from '@/data/siteData';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-type DocSection = 'overview' | 'installation' | 'user-guide' | 'admin-guide' | 'troubleshooting';
+type DocSection = 'overview' | 'installation' | 'server-setup' | 'user-guide' | 'admin-guide' | 'troubleshooting';
 
 const Docs = () => {
   const [activeSection, setActiveSection] = useState<DocSection>('overview');
@@ -14,6 +14,7 @@ const Docs = () => {
   const sidebarItems = [
     { id: 'overview' as DocSection, title: 'Gambaran Umum', icon: Book },
     { id: 'installation' as DocSection, title: 'Instalasi', icon: Download },
+    { id: 'server-setup' as DocSection, title: 'Setup Server Institusi', icon: Monitor },
     { id: 'user-guide' as DocSection, title: 'Panduan Pengguna', icon: Users },
     { id: 'admin-guide' as DocSection, title: 'Panduan Admin', icon: Settings },
     { id: 'troubleshooting' as DocSection, title: 'Pemecahan Masalah', icon: Shield },
@@ -176,58 +177,195 @@ const Docs = () => {
           </div>
         );
 
+      case 'server-setup':
+        return (
+          <div className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-bold text-gray-900 mb-4">Setup Server Institusi</h1>
+              <p className="text-lg text-gray-600">Panduan lengkap mengatur ScanHadir di server institusi dengan task scheduler</p>
+            </div>
+
+            <Card>
+              <CardHeader>
+                <div className="flex items-center space-x-3">
+                  <Monitor className="h-6 w-6 text-primary" />
+                  <CardTitle>Konfigurasi Task Scheduler Windows</CardTitle>
+                </div>
+                <CardDescription>
+                  Mengatur sistem agar ScanHadir Dashboard otomatis berjalan saat komputer dinyalakan
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ol className="space-y-4 text-gray-600">
+                  <li className="flex items-start space-x-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">1</span>
+                    <div>
+                      <strong>Buka Task Scheduler:</strong>
+                      <p>Tekan Windows + R, ketik "taskschd.msc" dan tekan Enter</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">2</span>
+                    <div>
+                      <strong>Buat Task Baru:</strong>
+                      <p>Klik kanan "Task Scheduler Library" → "Create Basic Task"</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">3</span>
+                    <div>
+                      <strong>Atur Nama dan Deskripsi:</strong>
+                      <p>Nama: "ScanHadir AutoStart", Deskripsi: "Menjalankan ScanHadir Dashboard saat boot"</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">4</span>
+                    <div>
+                      <strong>Pilih Trigger:</strong>
+                      <p>Pilih "When the computer starts" untuk menjalankan saat boot</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">5</span>
+                    <div>
+                      <strong>Set Action:</strong>
+                      <p>Pilih "Start a program" dan browse ke lokasi ScanHadir Dashboard.exe</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">6</span>
+                    <div>
+                      <strong>Konfigurasi Lanjutan:</strong>
+                      <p>Centang "Run with highest privileges" agar berjalan dengan akses administrator</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">7</span>
+                    <div>
+                      <strong>Test dan Finalisasi:</strong>
+                      <p>Klik "Finish" dan restart komputer untuk memverifikasi task berjalan otomatis</p>
+                    </div>
+                  </li>
+                </ol>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Persyaratan Sistem Server</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-semibold mb-3">Spesifikasi Minimum:</h4>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• Windows 10/11 atau Windows Server 2019+</li>
+                      <li>• RAM 4GB minimum (8GB disarankan)</li>
+                      <li>• Storage 2GB ruang kosong</li>
+                      <li>• Koneksi internet stabil</li>
+                      <li>• Port 80/443 terbuka</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-3">Konfigurasi Jaringan:</h4>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• IP statis untuk server (disarankan)</li>
+                      <li>• Firewall exception untuk ScanHadir</li>
+                      <li>• Akses admin untuk instalasi</li>
+                      <li>• Backup rutin database</li>
+                      <li>• SSL certificate untuk HTTPS</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        );
+
       case 'user-guide':
         return (
           <div className="space-y-8">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">Panduan Pengguna</h1>
-              <p className="text-lg text-gray-600">Pelajari cara menggunakan aplikasi mobile ScanHadir secara efektif</p>
+              <h1 className="text-4xl font-bold text-gray-900 mb-4">Panduan Aplikasi ScanHadir</h1>
+              <p className="text-lg text-gray-600">Langkah-langkah lengkap menggunakan aplikasi mobile ScanHadir untuk absensi</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {docsData.userGuide.sections.map((section, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{section.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">
-                      {section.content}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Detailed User Instructions */}
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Cara Melakukan Absensi</CardTitle>
+                  <div className="flex items-center space-x-3">
+                    <Smartphone className="h-6 w-6 text-primary" />
+                    <CardTitle>Langkah 1: Persiapan Awal</CardTitle>
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <ol className="space-y-3 text-gray-600">
-                    <li>1. Buka aplikasi mobile ScanHadir</li>
-                    <li>2. Ketuk tombol "Scan QR Code"</li>
-                    <li>3. Arahkan kamera ke QR code yang ditampilkan oleh instruktur/manajer</li>
-                    <li>4. Tunggu verifikasi lokasi (jika diaktifkan)</li>
-                    <li>5. Konfirmasi absensi Anda saat diminta</li>
-                    <li>6. Anda akan melihat pesan sukses yang mengkonfirmasi absensi</li>
+                    <li>1. Download aplikasi ScanHadir dari Play Store atau App Store</li>
+                    <li>2. Buka aplikasi dan berikan izin kamera dan lokasi</li>
+                    <li>3. Daftarkan diri menggunakan email atau nomor ID yang diberikan institusi</li>
+                    <li>4. Verifikasi akun melalui email atau SMS</li>
+                    <li>5. Login menggunakan kredensial yang telah dibuat</li>
                   </ol>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Melihat Riwayat Absensi</CardTitle>
+                  <CardTitle>Langkah 2: Melakukan Absensi</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ol className="space-y-3 text-gray-600">
-                    <li>1. Buka aplikasi dan buka tab "Riwayat"</li>
-                    <li>2. Pilih rentang tanggal atau gunakan filter</li>
-                    <li>3. Lihat catatan absensi Anda dengan timestamp</li>
-                    <li>4. Ketuk catatan mana pun untuk informasi detail</li>
+                    <li>1. Pastikan Anda berada di lokasi yang ditentukan</li>
+                    <li>2. Buka aplikasi ScanHadir</li>
+                    <li>3. Ketuk tombol besar "Scan QR Code" di tengah layar</li>
+                    <li>4. Arahkan kamera ke QR code yang ditampilkan instruktur/admin</li>
+                    <li>5. Tunggu aplikasi memverifikasi lokasi Anda (jika diaktifkan)</li>
+                    <li>6. Aplikasi akan menampilkan konfirmasi "Absensi Berhasil"</li>
+                    <li>7. Screenshot bukti absensi untuk arsip pribadi (opsional)</li>
                   </ol>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Langkah 3: Melihat Riwayat Absensi</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ol className="space-y-3 text-gray-600">
+                    <li>1. Buka tab "Riwayat" di bagian bawah aplikasi</li>
+                    <li>2. Pilih rentang tanggal dari dropdown kalender</li>
+                    <li>3. Gunakan filter berdasarkan status (Hadir, Terlambat, Tidak Hadir)</li>
+                    <li>4. Ketuk setiap entri untuk melihat detail waktu dan lokasi</li>
+                    <li>5. Export riwayat ke PDF untuk laporan pribadi</li>
+                  </ol>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Tips Penggunaan Optimal</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <h4 className="font-semibold mb-2">Scanning QR Code:</h4>
+                      <ul className="space-y-1 text-gray-600 text-sm">
+                        <li>• Pastikan pencahayaan cukup</li>
+                        <li>• Jaga jarak 15-30cm dari QR code</li>
+                        <li>• Pegang ponsel dengan stabil</li>
+                        <li>• Bersihkan lensa kamera secara rutin</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Troubleshooting:</h4>
+                      <ul className="space-y-1 text-gray-600 text-sm">
+                        <li>• Restart aplikasi jika error</li>
+                        <li>• Periksa koneksi internet</li>
+                        <li>• Update aplikasi ke versi terbaru</li>
+                        <li>• Hubungi admin jika masalah persisten</li>
+                      </ul>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -238,73 +376,107 @@ const Docs = () => {
         return (
           <div className="space-y-8">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">Panduan Administrator</h1>
-              <p className="text-lg text-gray-600">Panduan lengkap untuk mengelola ScanHadir Dashboard</p>
+              <h1 className="text-4xl font-bold text-gray-900 mb-4">Panduan Admin Dashboard</h1>
+              <p className="text-lg text-gray-600">Langkah-langkah lengkap mengelola ScanHadir Dashboard untuk administrator</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <Users className="h-8 w-8 text-primary mb-2" />
-                  <CardTitle>Manajemen Pengguna</CardTitle>
+                  <div className="flex items-center space-x-3">
+                    <Settings className="h-6 w-6 text-primary" />
+                    <CardTitle>Langkah 1: Setup Awal Dashboard</CardTitle>
+                  </div>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li>• Tambah dan hapus pengguna</li>
-                    <li>• Tetapkan peran dan izin</li>
-                    <li>• Kelola profil pengguna</li>
-                    <li>• Operasi pengguna massal</li>
-                  </ul>
+                  <ol className="space-y-3 text-gray-600">
+                    <li>1. Buka ScanHadir Dashboard di browser (localhost:3000)</li>
+                    <li>2. Login menggunakan akun administrator default</li>
+                    <li>3. Ubah password default ke password yang kuat</li>
+                    <li>4. Konfigurasi pengaturan institusi (nama, logo, alamat)</li>
+                    <li>5. Set zona waktu dan format tanggal sesuai kebutuhan</li>
+                    <li>6. Aktifkan fitur-fitur yang diperlukan (GPS, notifikasi)</li>
+                  </ol>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <Download className="h-8 w-8 text-primary mb-2" />
-                  <CardTitle>Manajemen QR Code</CardTitle>
+                  <CardTitle>Langkah 2: Manajemen Pengguna</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li>• Generate QR code sesi</li>
-                    <li>• Atur waktu kedaluwarsa</li>
-                    <li>• Pembatasan berbasis lokasi</li>
-                    <li>• Generasi QR massal</li>
-                  </ul>
+                  <ol className="space-y-3 text-gray-600">
+                    <li>1. Navigasi ke menu "Pengguna" → "Tambah Pengguna"</li>
+                    <li>2. Import data pengguna melalui file Excel/CSV atau input manual</li>
+                    <li>3. Tetapkan role (Admin, Instruktur, Peserta) untuk setiap pengguna</li>
+                    <li>4. Set grup/kelas untuk mengorganisir peserta</li>
+                    <li>5. Kirim kredensial login via email atau generate QR code</li>
+                    <li>6. Verifikasi dan aktivasi akun pengguna baru</li>
+                  </ol>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <BarChart3 className="h-8 w-8 text-primary mb-2" />
-                  <CardTitle>Laporan & Analitik</CardTitle>
+                  <CardTitle>Langkah 3: Membuat dan Mengelola Sesi</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li>• Generate laporan absensi</li>
-                    <li>• Ekspor data dalam berbagai format</li>
-                    <li>• Lihat dashboard analitik</li>
-                    <li>• Jadwalkan laporan otomatis</li>
-                  </ul>
+                  <ol className="space-y-3 text-gray-600">
+                    <li>1. Klik "Sesi" → "Buat Sesi Baru" di dashboard utama</li>
+                    <li>2. Input detail: nama sesi, tanggal, waktu mulai-selesai</li>
+                    <li>3. Pilih peserta atau grup yang akan mengikuti sesi</li>
+                    <li>4. Set radius lokasi dan koordinat GPS (jika diperlukan)</li>
+                    <li>5. Generate QR code untuk sesi tersebut</li>
+                    <li>6. Tampilkan QR code di layar proyektor/monitor</li>
+                    <li>7. Monitor absensi real-time dan tutup sesi sesuai jadwal</li>
+                  </ol>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Langkah 4: Laporan dan Analitik</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ol className="space-y-3 text-gray-600">
+                    <li>1. Akses menu "Laporan" untuk melihat ringkasan absensi</li>
+                    <li>2. Filter berdasarkan tanggal, kelas, atau individu tertentu</li>
+                    <li>3. Export laporan dalam format Excel, PDF, atau CSV</li>
+                    <li>4. Set jadwal otomatis untuk laporan harian/mingguan</li>
+                    <li>5. Analisis trend kehadiran menggunakan grafik dashboard</li>
+                    <li>6. Generate sertifikat kehadiran untuk peserta</li>
+                  </ol>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Fitur Lanjutan</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <h4 className="font-semibold mb-2">Manajemen Data:</h4>
+                      <ul className="space-y-1 text-gray-600 text-sm">
+                        <li>• Backup otomatis database</li>
+                        <li>• Import/export data massal</li>
+                        <li>• Integrasi dengan sistem akademik</li>
+                        <li>• API untuk aplikasi eksternal</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Keamanan:</h4>
+                      <ul className="space-y-1 text-gray-600 text-sm">
+                        <li>• Two-factor authentication</li>
+                        <li>• Log aktivitas pengguna</li>
+                        <li>• Enkripsi data sensitif</li>
+                        <li>• Role-based access control</li>
+                      </ul>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             </div>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Membuat Sesi Pertama Anda</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ol className="space-y-3 text-gray-600">
-                  <li>1. Buka ScanHadir Dashboard</li>
-                  <li>2. Navigasi ke "Sesi" → "Buat Sesi Baru"</li>
-                  <li>3. Masukkan detail sesi (nama, tanggal, waktu, durasi)</li>
-                  <li>4. Atur pembatasan lokasi jika diperlukan</li>
-                  <li>5. Generate QR code untuk sesi</li>
-                  <li>6. Tampilkan QR code untuk dipindai pengguna</li>
-                  <li>7. Monitor absensi real-time di dashboard</li>
-                </ol>
-              </CardContent>
-            </Card>
           </div>
         );
 

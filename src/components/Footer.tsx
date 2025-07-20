@@ -73,10 +73,9 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a href={`mailto:${siteData.contact.support}`} className="text-gray-300 hover:text-white transition-colors flex items-center">
-                  <Mail className="h-4 w-4 mr-2" />
+                <Link to="/support" className="text-gray-300 hover:text-white transition-colors">
                   Bantuan Teknis
-                </a>
+                </Link>
               </li>
               <li>
                 <Link to="/docs" className="text-gray-300 hover:text-white transition-colors">
@@ -84,14 +83,14 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-300 hover:text-white transition-colors">
-                  Tentang Kami
+                <Link to="/privacy" className="text-gray-300 hover:text-white transition-colors">
+                  Kebijakan Privasi
                 </Link>
               </li>
               <li>
-                <a href={siteData.contact.website} className="text-gray-300 hover:text-white transition-colors">
-                  Situs Resmi
-                </a>
+                <Link to="/terms" className="text-gray-300 hover:text-white transition-colors">
+                  Syarat & Ketentuan
+                </Link>
               </li>
             </ul>
           </div>
